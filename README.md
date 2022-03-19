@@ -1,6 +1,6 @@
 # Cat Breeds App 
 
-This application for React app assignment. Here is [demo app](https://cat-breeds.netlify.app/) link deployed on netlify. 
+This application is for React app assignment. Here is [demo app](https://cat-breeds.netlify.app/) link deployed on netlify. 
 
 ## Packages
 
