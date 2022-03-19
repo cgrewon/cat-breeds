@@ -1,0 +1,154 @@
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px, 
+  xxl: 1400px
+) !default;
+
+
+$phone-width: 640px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+
+@mixin break-up($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } 
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+@mixin break-down($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } 
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
+@mixin text-gradient {
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+@mixin scrollbar-white {
+  scrollbar-color: white rgba(255, 255, 255, 0.45);
+  scrollbar-width: thin;
+  
+  &::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 8px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 70px;
+    margin-top: 70px;
+    @media screen and (max-width: 590px) {
+      display: none;
+    }
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 8.5px;
+    margin-top: 20px;
+    @media screen and (max-width: 590px) {
+      display: none;
+    }
+  }
+}
+
+@mixin scrollbar-gray {
+  scrollbar-color: rgba(128, 127, 127, 0.45) transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 8px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.932);
+
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 70px;
+    margin-top: 70px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: rgb(196, 196, 196);
+
+    border-radius: 8.5px;
+    margin-top: 20px;
+  }
+}
+
+@mixin scrollbar-gradient {
+  scrollbar-color: #f76a47 gray;
+  scrollbar-width: thin;
+  
+  &::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 8px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.45);
+   
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 70px;
+    margin-top: 70px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: linear-gradient(113.08deg, #ff9536 0.89%, #f747ae 100.09%);
+
+    border-radius: 8.5px;
+    margin-top: 20px;
+  }
+}
+
+@mixin wrapper-before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -2px; /* !importanté */
+  border-radius: inherit; /* !importanté */
+}
+
+@mixin wrapper-after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: 0px; /* !importanté */
+  border-radius: inherit; /* !importanté */
+}
+
+@mixin respect-border-box {
+  box-sizing: border-box;
+  background-clip: padding-box; /* !importanté */
+  border: solid 3px transparent; /* !importanté */
+}

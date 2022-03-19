@@ -1,0 +1,15 @@
+.spinner{
+    animation: spinner-animation infinite 1s ease-in-out;
+    font-size: 30px;
+}
+
+
+@keyframes spinner-animation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(-360deg);
+    }
+}

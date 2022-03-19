@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import Spinner from "../components/spinner/spinner";
 import { useApi } from "../context/api";
 import { ApiContextValue } from "../types/api-context-value.type";
-import { Cat } from "../types/cat.type";
+
 import "./cat-breeds.scss";
+import AgCatTable from "../components/ag-cat-table/ag-cat-table";
+import SearchBar from "../components/search-bar/search-bar";
 
 export default function CatBreeds() {
-  const { cats, loading }: ApiContextValue = useApi();
   
   return (
     <div className="cat-breeds-container">
       <h1>Cat Breeds</h1>
-      {loading && <h2>Loading ...</h2>}
-      {cats &&
-        cats.map((cat: Cat, index: number) => {
-          return <div key={index}>{JSON.stringify(cat, null, 2)}</div>;
-        })}
+      
+      <SearchBar/>
+      <AgCatTable />    
     </div>
   );
 }

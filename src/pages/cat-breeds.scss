@@ -1,8 +1,26 @@
+@import "../styles/breakpoints.scss";
+@import "../styles/font-faces.scss";
 
-.cat-breeds-container{
-    max-width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
+.cat-breeds-container {
+  max-width: 1286px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+  color: rgb(255, 255, 255);
 
-    
+  .ag-theme-alpine-dark .ag-root-wrapper{
+      border-radius: 6px;
+  }
+
+  @include break-down("md") {
+    width: 95%;
+    max-width: 100%;
+  }
+  h1 {
+    font-family: "meowcat";
+    font-size: 6em;
+    margin: 0 0 40px;
+    color: rgb(223, 167, 12);
+  }
+
 }

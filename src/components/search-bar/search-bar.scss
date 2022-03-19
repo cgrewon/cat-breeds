@@ -1,0 +1,56 @@
+@import "../../styles/breakpoints.scss";
+
+.search-bar-container {
+  width: 100%;
+  height: fit-content;
+
+  .search-bar-input-wrapper {
+    $radius: 8px;
+    position: relative;
+    width: 50%;
+    max-width: 500px;
+
+    @include break-down('md'){
+        width: 95%;
+        max-width: 100%;
+
+    }
+
+
+    input {
+      border-radius: $radius;
+      height: 40px;
+      padding-left: 10px;
+      font-size: 1.1rem;
+      width: 100%;
+      // padding: 10px;
+    }
+
+    .btn-search {
+      position: absolute;
+      right: -16px;
+      top: 1px;
+      bottom: 0;
+      width: 45px;
+      background-color: rgba(102, 102, 102, 0.445);
+      border-radius: $radius;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      text-align: center;
+      padding-top: 7px;
+      cursor: pointer;
+
+      &.hover{
+        background-color: rgba(59, 45, 71, 0.986);  
+        
+      }
+
+      &:hover {
+        background-color: rgba(59, 45, 71, 0.986);
+      }
+      &:active{
+        background-color: rgba(103, 72, 131, 0.986);
+      }
+    }
+  }
+}
