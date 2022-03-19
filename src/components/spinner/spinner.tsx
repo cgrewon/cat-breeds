@@ -4,5 +4,5 @@ import './spinner.scss';
 
 export default function Spinner(props: SpinnerProps) {
   
-  return props.isLoading ? <ImSpinner6 className="spinner" color="white" {...props.style} /> : null;
+  return props.isLoading ? <ImSpinner6 className="spinner" color="purple" {...props.style} /> : null;
 }
